@@ -27,7 +27,7 @@ class DrawPanel extends JPanel {
     private List<Point> chaikinPoints = new ArrayList<>();
     private boolean startDrawing = false;
 
-    private int Curr_Iteration = 0;
+    private int curr_Iteration = 0;
     private Timer timer;
 
     public DrawPanel() {
@@ -51,28 +51,35 @@ class DrawPanel extends JPanel {
                     points.clear();
                     chaikinPoints.clear();
                     startDrawing = false;
-                    Curr_Iteration = 0;
+                    curr_Iteration = 0;
                     timer.stop();
                     repaint();
                 } else if (e.getKeyCode() == KeyEvent.VK_ENTER && !startDrawing && points.size() > 1) {
                     System.out.println("ENTER PRESSED!");
                     startDrawing = true;
-                    Curr_Iteration = 0;
+                    curr_Iteration = 0;
                     chaikinPoints = new ArrayList<>(points);
                     startAnimation();
+                    repaint();
                 }
             }
         });
 
-        timer = new Timer(1000, e -> {
-            if (Curr_Iteration < 7) {
+        timer = new Timer(700, e -> {
+            System.out.println("points 2 = " + points.toString());
+            if (curr_Iteration < 7) {
                 chaikinPoints = chaikin(chaikinPoints);
-                Curr_Iteration++;
+                curr_Iteration++;
                 repaint();
+                // chaikinPoints = chaikin(chaikinPoints);
             } else {
-                timer.stop();
-                Curr_Iteration = 0;
+                System.out.println("points 2 = " + points.toString());
+                curr_Iteration = 0;
+                chaikinPoints = new ArrayList<>(points);
+                // chaikinPoints = chaikin(chaikinPoints);  // Apply first smoothing step
+                // curr_Iteration++;
                 System.out.println("Chaikin animation completed.");
+                repaint();
             }
         });
     }
@@ -173,7 +180,7 @@ class DrawPanel extends JPanel {
 //     private List<Point> chaikinPoints = new ArrayList<>();
 //     private boolean startDrawing = false;
 
-//     private int Curr_Iteration = 0;
+//     private int curr_Iteration = 0;
 //     private Timer timer;
 
 
@@ -211,9 +218,9 @@ class DrawPanel extends JPanel {
 //             }
 //         });
 //         timer = new Timer(1000, e -> {
-//             if (Curr_Iteration < 7) {
+//             if (curr_Iteration < 7) {
 //                 chaikinPoints = chaikin(chaikinPoints);
-//                 Curr_Iteration++;
+//                 curr_Iteration++;
 //                 repaint();
 //             } else {
 //                 timer.stop(); // Stop after 7 iterations
