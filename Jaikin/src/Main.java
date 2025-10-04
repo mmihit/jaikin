@@ -54,7 +54,7 @@ class DrawPanel extends JPanel {
                     Curr_Iteration = 0;
                     timer.stop();
                     repaint();
-                } else if (e.getKeyCode() == KeyEvent.VK_ENTER && !startDrawing) {
+                } else if (e.getKeyCode() == KeyEvent.VK_ENTER && !startDrawing && points.size() > 1) {
                     System.out.println("ENTER PRESSED!");
                     startDrawing = true;
                     Curr_Iteration = 0;
@@ -71,6 +71,7 @@ class DrawPanel extends JPanel {
                 repaint();
             } else {
                 timer.stop();
+                Curr_Iteration = 0;
                 System.out.println("Chaikin animation completed.");
             }
         });
