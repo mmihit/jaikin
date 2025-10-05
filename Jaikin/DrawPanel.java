@@ -64,13 +64,11 @@ public class DrawPanel extends JPanel {
         });
 
         timer = new Timer(700, e -> {
-            System.out.println("points 2 = " + points.toString());
             if (curr_Iteration < 7) {
                 chaikinPoints = Chaikin.chaikinAlgo(chaikinPoints);
                 curr_Iteration++;
                 repaint();
             } else {
-                System.out.println("points 2 = " + points.toString());
                 curr_Iteration = 0;
                 chaikinPoints = new ArrayList<>(points);
                 System.out.println("Chaikin animation completed.");

@@ -33,7 +33,6 @@ public class Chaikin {
         } catch (Exception e) {
             System.err.println("Error in chaikin: " + e);
         }
-        System.err.println("Chaikin points = " + newPoints.size());
         return newPoints;
     }
 }
