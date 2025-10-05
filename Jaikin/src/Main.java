@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
     SwingUtilities.invokeLater(() -> {
-    JFrame frame = new JFrame("Click to Draw Circle");
+    JFrame frame = new JFrame("Chaikin's Algorithm");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setSize(700, 700);
 
